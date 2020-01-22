@@ -13,15 +13,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 require("./routes/htmlRoutes.js")(app);
-require("./routes/apiRoutes.js")(app);
-require("./routes/userRoutes.js")(app);
+// require("./routes/apiRoutes.js")(app);
+// require("./routes/userRoutes.js")(app);
 
-app.get("/", function(req, res) {
-  res.render("home");
-});
+// db.sequelize.sync({ force: false }).then(function() {
+//   app.listen(PORT, function() {
+//     console.log(`Server running: http://localhost:${port}`);
+//   });
+// });
 
-db.sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
-    console.log(`Server running: http://localhost:${port}`);
-  });
+app.listen(PORT, () => {
+  console.log(`Server running: http://localhost:${PORT}`);
 });
