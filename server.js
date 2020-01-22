@@ -2,15 +2,19 @@ const express = require("express");
 const app = express();
 const Sequelize = require("sequelize");
 const exphbs = require("express-handlebars");
-const bodyparser = require("body-parser");
+const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 3000;
 
-app.engine("handlebars", exphbs());
+app.engine("handlebars", exphbs({ defaultLayout: "default" }));
 app.set("view engine", "handlebars");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+
+require("./routes/htmlRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
+require("./routes/userRoutes.js")(app);
 
 app.get("/", function(req, res) {
   res.render("home");
