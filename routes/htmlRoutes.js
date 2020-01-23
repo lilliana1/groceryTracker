@@ -13,4 +13,7 @@ module.exports = function(app) {
   app.get("/product", (req, res) => {
     res.render("product");
   });
+  app.get("/shopping", (req, res) => {
+    res.render("login");
+  });
 };
