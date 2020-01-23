@@ -1,0 +1,48 @@
+
+.shopping-cart-button {
+    padding: 1rem;
+    background-color: #1779ba;
+  }
+  
+  .shopping-cart-button:hover {
+    background-color: #115b8d;
+  }
+  
+  .shopping-cart-button i {
+    margin-right: 0.5rem;
+  }
+  
+  .shopping-cart-dropdown-pane .dropdown-pane {
+    padding: 0;
+  }
+  
+  .shopping-cart-item {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  
+  .shopping-cart-item-name, .shopping-cart-item-price {
+    padding: 0 1rem;
+  }
+  
+  .shopping-cart-item-name p, .shopping-cart-item-price p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .shopping-cart-title {
+    font-weight: bold;
+  }
+  
+  .shopping-cart-checkout {
+    padding: 0.5rem;
+    margin-bottom: 0;
+  }
+  
+  
