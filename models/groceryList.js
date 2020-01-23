@@ -3,6 +3,14 @@
 const Users = require("./user");
 const Products = require("./product");
 
+
+// This is our Grocery List model, which serves to take items a user has
+// added to their cart and also reference them to a user ID. We will keep
+// product IDs and them have User IDs associated with them, so if we look
+// up by a user ID we can see all of the product IDs assigned to them ->
+// therefore a shopping cart!
+
+
 module.exports = function(sequelize, DataTypes) {
   const groceryList = sequelize.define("Grocery_List", {
     // reference the products by ID from the products table
