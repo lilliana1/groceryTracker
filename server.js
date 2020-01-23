@@ -29,10 +29,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/htmlRoutes.js")(app);
-// require("./routes/apiRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
 // require("./routes/userRoutes.js")(app);
 
-db.sequelize.sync().then(() => {
+
+
+
+db.sequelize.sync({ force: false }).then(() => {
+
   app.listen(PORT, () => {
     console.log(`==> 🌎 Server Running: http://localhost:${PORT}`);
   });
