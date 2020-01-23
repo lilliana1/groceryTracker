@@ -1,0 +1,12 @@
+.log-in-form {
+    border: 1px solid #cacaca;
+    padding: 4rem;
+    border-radius: 0;
+}
+#signInDiv {
+    width: 800px;
+    margin: auto;
+}
+.homepageBtn {
+    align-items: center;
+}
