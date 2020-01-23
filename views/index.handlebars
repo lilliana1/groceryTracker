@@ -1,35 +1,45 @@
 <div class="top-bar">
 <div class="top-bar-left">
-<ul class="menu">
-<li class="menu-text">Grocery Store</li>
-<li><a href="#">One</a></li>
-<li><a href="#">Two</a></li>
+    <ul class="menu">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text" id="groceryStoreName">Corner Market</li>
+            <li>
+                <a href="#">Categories</a>
+                <ul class="menu">
+                <li><a href="#">bla bla </a></li>
+                <li><a href="#">bla bla </a></li>
+                <li><a href="#">bla bla </a></li>
+                <li><a href="#">bla bla </a></li>
+                </ul>
+            </li>
+        </ul>
+
+
 </ul>
 </div>
 <div class="top-bar-right">
 <ul class="menu">
 <li><input type="search" placeholder="Search"></li>
-<li><button type="button" class="button">Search</button></li>
-<li><a href="#">Account</a></li>
+<li><button class="hollow button" id="liSearchBtn" href="#">Search</button>
+<li><a href="#" id="createAccount">Create Account</a></li>
+<li><a href="#" id="signIn">Sign In</a></li>
 </ul>
 </div>
 </div>
+
 
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
 <ul class="orbit-container">
 <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
 <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
 <li class="orbit-slide is-active">
-<img src="https://placehold.it/2000x750">
+<img src="/images/fruits.jpg">
 </li>
 <li class="orbit-slide">
-<img src="https://placehold.it/2000x750">
+<img src="/images/fruits2.jpg">
 </li>
 <li class="orbit-slide">
-<img src="https://placehold.it/2000x750">
-</li>
-<li class="orbit-slide">
-<img src="https://placehold.it/2000x750">
+<img src="/images/vegetables.jpg">
 </li>
 </ul>
 </div>
@@ -213,18 +223,18 @@
 </div>
 <div class="large-3 large-offset-2 columns">
 <ul class="menu vertical">
-<li><a href="#">One</a></li>
-<li><a href="#">Two</a></li>
-<li><a href="#">Three</a></li>
-<li><a href="#">Four</a></li>
+<li>Get to Know Us</li>
+<li><a href="#">Our Company</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">Suppliers</a></li>
 </ul>
 </div>
 <div class="large-3 columns">
 <ul class="menu vertical">
-<li><a href="#">One</a></li>
-<li><a href="#">Two</a></li>
-<li><a href="#">Three</a></li>
-<li><a href="#">Four</a></li>
+<li>Customer Service</li>
+<li><a href="#">Help Center</a></li>
+<li><a href="#">Contact Us</a></li>
+<li><a href="#">Returns</a></li>
 </ul>
 </div>
 </div>
