@@ -1,5 +1,9 @@
 "use_strict";
 
+// This is our Product List model, we use this to store product information
+// for the store. A product will get an ID, name, image, selling price,
+//tax exemption status (for EBT eligibility), tax percentage, category, and UPC barcode
+
 module.exports = function(sequelize, DataTypes) {
   const Products = sequelize.define("Products", {
     id: { type: DataTypes.INTEGER, primaryKey: true },
