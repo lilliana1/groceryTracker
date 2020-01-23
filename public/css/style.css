@@ -7,4 +7,6 @@ a {
 #liSearchBtn {
     border-color: mediumseagreen ;
 }
-
+#groceryStoreName {
+    cursor: pointer;
+}
