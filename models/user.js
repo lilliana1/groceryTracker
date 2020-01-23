@@ -1,14 +1,13 @@
 "use_strict";
 
-const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize("sqlite::memory:");
+module.exports = function(sequelize, DataTypes) {
+  const Users = sequelize.define("Users", {
+    id: { type: DataTypes.INTEGER, primaryKey: true },
+    first_name: DataTypes.STRING,
+    last_name: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
+  });
 
-const Users = sequelize.define("Users", {
-  user_id: DataTypes.INTEGER,
-  first_name: DataTypes.STRING,
-  last_name: DataTypes.STRING,
-  email: DataTypes.STRING,
-  password: DataTypes.STRING
-});
-
-module.exports = Users;
+  return Users;
+};
