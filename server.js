@@ -1,8 +1,11 @@
+"use_strict";
+
+require("dotenv").config();
 const express = require("express");
 const app = express();
-const Sequelize = require("sequelize");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
+const db = require("./models");
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,12 +19,12 @@ require("./routes/htmlRoutes.js")(app);
 // require("./routes/apiRoutes.js")(app);
 // require("./routes/userRoutes.js")(app);
 
-// db.sequelize.sync({ force: false }).then(function() {
-//   app.listen(PORT, function() {
-//     console.log(`Server running: http://localhost:${port}`);
-//   });
-// });
-
-app.listen(PORT, () => {
-  console.log(`Server running: http://localhost:${PORT}`);
+db.sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running: http://localhost:${PORT}`);
+  });
 });
+
+// app.listen(PORT, () => {
+//   console.log(`Server running: http://localhost:${PORT}`);
+// });
