@@ -14,7 +14,9 @@ module.exports = function(sequelize, DataTypes) {
     tax_percentage: DataTypes.INTEGER,
     category: DataTypes.STRING,
     barcode: DataTypes.STRING
-  });
+  }, {
+    timestamps: false
+    });
 
   return Products;
 };
