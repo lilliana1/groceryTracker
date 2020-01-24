@@ -1,20 +1,14 @@
 const path = require("path");
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.get("/", (req, res) => {
-    db.Products.findAll({
-      limit: 9
-    }).then(dbProducts => {
-      const data = dbProducts;
-      res.render("index", data);
+    db.Products.findAll({}).then((dbProducts) => {
+      console.log(dbProducts);
+      
+      res.render("index", { data: dbProducts });
     });
   });
-  // app.get("/", (req, res) => {
-  //   let data = res.json();
-  //   console.log(data);
-  //   res.render("index", data);
-  // });
   app.get("/signin", (req, res) => {
     res.render("signIn");
   });
