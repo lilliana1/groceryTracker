@@ -2,7 +2,8 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
-module.exports = function(app) {
+// eslint-disable-next-line func-names
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -21,12 +22,12 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password
     })
+
       .then(function() {
         res.redirect(307, "/login");
       })
       .catch(function(err) {
-        console.log(err);
-        res.status(401).json(err);
+        console.log(err);      
       });
   });
 
@@ -53,7 +54,7 @@ module.exports = function(app) {
 
   // Route for getting all products
   app.get("/api/all", (req, res) => {
-    db.Products.findAll({}).then(dbProducts => {
+    db.Products.findAll({}).then((dbProducts) => {
       res.json(dbProducts);
     });
   });
@@ -64,7 +65,7 @@ module.exports = function(app) {
       where: {
         category: req.params.category
       }
-    }).then(dbProducts => {
+    }).then((dbProducts) => {
       res.json(dbProducts);
     });
   });
@@ -75,7 +76,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(dbProducts => {
+    }).then((dbProducts) => {
       res.json(dbProducts);
     });
   });
@@ -86,7 +87,7 @@ module.exports = function(app) {
       where: {
         product_name: req.params.name
       }
-    }).then(dbProducts => {
+    }).then((dbProducts) => {
       res.json(dbProducts);
     });
   });
