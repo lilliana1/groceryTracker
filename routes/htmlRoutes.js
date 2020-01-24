@@ -1,8 +1,16 @@
-var path = require("path");
+const path = require("path");
+const API = require("./apiRoutes");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    res.render("index");
+    db.Products.findAll({
+      where: {
+        category: req.params.category
+      }
+    }).then((dbProducts) => {
+      const data = dbProducts;
+      res.render("index", data);
+    });
   });
   app.get("/signin", (req, res) => {
     res.render("signIn");

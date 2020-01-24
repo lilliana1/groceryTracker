@@ -15,19 +15,17 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/createUser", (req, res) => {
-    console.log(req.body);
     db.Users.create({
       first_name: req.body.firstName,
       last_name: req.body.lastName,
       email: req.body.email,
       password: req.body.password
     })
-
-      .then(function() {
-        res.redirect(307, "/login");
+      .then(() => {
+        res.redirect(307, "/api/login");
       })
-      .catch(function(err) {
-        console.log(err);      
+      .catch((err) => {
+        res.status(401).json(err);
       });
   });
 
@@ -90,5 +88,30 @@ module.exports = function (app) {
     }).then((dbProducts) => {
       res.json(dbProducts);
     });
+  });
+
+  // Route for adding a product to cart
+  app.post("/api/addToCart/:id", (req, res) => {
+    db.groceryList
+      .create({
+        userId: req.user.id,
+        productId: req.params.id
+      })
+      .then((dbProducts) => {
+        res.json(dbProducts);
+      });
+  });
+
+   // Route for getting a users cart
+   app.get("/api/getCart", (req, res) => {
+    db.groceryList
+      .findAll({
+        where: {
+          userId: req.user.id
+        }
+      })
+      .then((dbProducts) => {
+        res.json(dbProducts);
+      });
   });
 };
