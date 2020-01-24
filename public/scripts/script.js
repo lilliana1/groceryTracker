@@ -25,7 +25,11 @@ $(function() {
     } else {
       fetch("/api/createUser", {
         method: "POST",
-        body: userData
+        body: JSON.stringify(userData),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
       })
         .then(response => {
           console.log(response);
