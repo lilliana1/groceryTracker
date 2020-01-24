@@ -32,7 +32,7 @@ module.exports = function(app) {
           })
 
             .then(() => {
-              res.redirect(307, "/api/login");
+              res.status(200).end();
             })
             .catch(err => {
               // console.log(err);
