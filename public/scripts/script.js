@@ -32,7 +32,12 @@ $(function() {
         }
       })
         .then(response => {
-          console.log(response);
+          data = response.json();
+
+          location.href = "../signin";
+        })
+        .then(data => {
+          console.log(data);
         })
         .catch(err => {
           console.log(`Error occured ${err}`);
@@ -40,4 +45,3 @@ $(function() {
     }
   });
 });
-

@@ -3,31 +3,49 @@ const db = require("../models");
 const passport = require("../config/passport");
 
 // eslint-disable-next-line func-names
-module.exports = function (app) {
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    res.json(req.user);
+    res.redirect("/shopping");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/createUser", (req, res) => {
-    console.log(req.body);
-    db.Users.create({
-      first_name: req.body.firstName,
-      last_name: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password
-    })
+    let errors = [];
 
-      .then(function() {
-        res.redirect(307, "/login");
+    db.Users.findOne({
+      where: {
+        email: req.body.email
+      }
+    })
+      .then(user => {
+        // console.log(user);
+        if (!user) {
+          db.Users.create({
+            first_name: req.body.firstName,
+            last_name: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password
+          })
+
+            .then(function() {
+              res.status(200).end();
+            })
+            .catch(function(err) {
+              // console.log(err);
+            });
+        } else {
+          console.log("hello");
+          errors.push({ msg: "Email already exists" });
+          res.json(errors);
+        }
       })
-      .catch(function(err) {
-        console.log(err);      
+      .catch(err => {
+        // console.log(`Error : ${err}`);
       });
   });
 
@@ -54,7 +72,7 @@ module.exports = function (app) {
 
   // Route for getting all products
   app.get("/api/all", (req, res) => {
-    db.Products.findAll({}).then((dbProducts) => {
+    db.Products.findAll({}).then(dbProducts => {
       res.json(dbProducts);
     });
   });
@@ -65,7 +83,7 @@ module.exports = function (app) {
       where: {
         category: req.params.category
       }
-    }).then((dbProducts) => {
+    }).then(dbProducts => {
       res.json(dbProducts);
     });
   });
@@ -76,7 +94,7 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       }
-    }).then((dbProducts) => {
+    }).then(dbProducts => {
       res.json(dbProducts);
     });
   });
@@ -87,7 +105,7 @@ module.exports = function (app) {
       where: {
         product_name: req.params.name
       }
-    }).then((dbProducts) => {
+    }).then(dbProducts => {
       res.json(dbProducts);
     });
   });
