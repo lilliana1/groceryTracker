@@ -4,6 +4,11 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     res.render("index");
   });
+  // app.get("/", (req, res) => {
+  //   let data = res.json();
+  //   console.log(data);
+  //   res.render("index", data);
+  // });
   app.get("/signin", (req, res) => {
     res.render("signIn");
   });
