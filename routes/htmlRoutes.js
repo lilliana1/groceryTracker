@@ -10,6 +10,11 @@ module.exports = function(app) {
       res.render("index", data);
     });
   });
+  // app.get("/", (req, res) => {
+  //   let data = res.json();
+  //   console.log(data);
+  //   res.render("index", data);
+  // });
   app.get("/signin", (req, res) => {
     res.render("signIn");
   });
