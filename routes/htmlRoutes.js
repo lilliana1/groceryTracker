@@ -3,11 +3,7 @@ const API = require("./apiRoutes");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    db.Products.findAll({
-      where: {
-        category: req.params.category
-      }
-    }).then((dbProducts) => {
+    db.Products.findAll({}).then(dbProducts => {
       const data = dbProducts;
       res.render("index", data);
     });
