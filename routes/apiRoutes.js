@@ -15,9 +15,7 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/createUser", (req, res) => {
-<<<<<<< HEAD
     let errors = [];
-
     db.Users.findOne({
       where: {
         email: req.body.email
@@ -33,10 +31,10 @@ module.exports = function(app) {
             password: req.body.password
           })
 
-            .then(function() {
-              res.status(200).end();
+            .then(() => {
+              res.redirect(307, "/api/login");
             })
-            .catch(function(err) {
+            .catch(err => {
               // console.log(err);
             });
         } else {
@@ -118,20 +116,20 @@ module.exports = function(app) {
         userId: req.user.id,
         productId: req.params.id
       })
-      .then((dbProducts) => {
+      .then(dbProducts => {
         res.json(dbProducts);
       });
   });
 
-   // Route for getting a users cart
-   app.get("/api/getCart", (req, res) => {
+  // Route for getting a users cart
+  app.get("/api/getCart", (req, res) => {
     db.groceryList
       .findAll({
         where: {
           userId: req.user.id
         }
       })
-      .then((dbProducts) => {
+      .then(dbProducts => {
         res.json(dbProducts);
       });
   });
