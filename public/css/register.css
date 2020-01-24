@@ -11,6 +11,7 @@
 .button {
     margin: 0;
 }
-#homepage {
+.homepageBtn {
     margin: 5px;
+    text-align: center;
 }
