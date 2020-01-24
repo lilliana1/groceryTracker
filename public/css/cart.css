@@ -1,12 +1,10 @@
 
 .shopping-cart-button {
     padding: 1rem;
-    background-color: #1779ba;
-  }
-  
-  .shopping-cart-button:hover {
-    background-color: #115b8d;
-  }
+    background-color: mediumseagreen;
+    
+    margin: 5px;
+}
   
   .shopping-cart-button i {
     margin-right: 0.5rem;
@@ -44,5 +42,9 @@
     padding: 0.5rem;
     margin-bottom: 0;
   }
+  .menu.vertical>li {
+    display: block;
+    background-color: transparent;
+}
   
   

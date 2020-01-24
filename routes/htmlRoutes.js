@@ -16,4 +16,7 @@ module.exports = function(app) {
   app.get("/shopping", (req, res) => {
     res.render("login");
   });
+  app.get("/category", (req, res) => {
+    res.render("category");
+  });
 };
