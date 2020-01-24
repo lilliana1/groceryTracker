@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 // the ID is used when referencing their grocery list (see groceryList.js)
 // bcrypt will be used for hashing and salting of the password as well.
 
+// eslint-disable-next-line func-names
 module.exports = function(sequelize, DataTypes) {
   const Users = sequelize.define(
     "Users",
@@ -36,13 +37,16 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
 
-  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  // Creating a custom method for our User model. This will check if an unhashed
+  // password entered by the user can be compared to the hashed password stored in our database
+  // eslint-disable-next-line func-names
   Users.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
-  Users.addHook("beforeCreate", function(user) {
+  Users.addHook("beforeCreate", user => {
+    // eslint-disable-next-line no-param-reassign
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),
