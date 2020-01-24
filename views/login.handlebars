@@ -20,7 +20,7 @@
             <li><input type="search" placeholder="Search"></li>
             <li><button class="hollow button" id="liSearchBtn" href="#">Search</button>
                 <!--shopping cart-->
-                <button type="button-hover" href="/shopping" class="shopping-cart-button float-right"
+                <button type="button-hover" href="/shopping" class="shopping-cart-button float-right button"
                     data-toggle="shopping-cart-dropdown">
                     <i class="fa fa-shopping-cart"></i>
                     <span class="text">Shopping Cart</span>
@@ -47,21 +47,31 @@
 </div>
 
 
-<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-    <ul class="orbit-container">
-        <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous
-                Slide</span>&#9664;</button>
-        <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
-        <li class="orbit-slide is-active">
-            <img src="/images/fruits.jpg">
-        </li>
-        <li class="orbit-slide">
-            <img src="/images/fruits2.jpg">
-        </li>
-        <li class="orbit-slide">
-            <img src="/images/vegetables.jpg">
-        </li>
-    </ul>
+<div class="fullscreen-image-slider">
+    <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit >
+        <ul class="orbit-container">
+            <button class="orbit-previous">
+                <span class="show-for-sr">Previous Slide</span>
+                <span class="nav fa fa-chevron-left fa-3x"></span>
+            </button>
+            <button class="orbit-next">
+                <span class="show-for-sr">Next Slide</span>
+                <span class="nav fa fa-chevron-right fa-3x"></span>
+            </button>
+            <li class="is-active orbit-slide">
+                <img class="orbit-image" src="images/vegetables2.jpg" alt="vegetables">
+            </li>
+            <li class="orbit-slide">
+                <img class="orbit-image" src="images/vegetables2.jpg" alt="Space">
+            </li>
+            <li class="orbit-slide">
+                <img class="orbit-image" src="images/peppers.jpg" alt="Space">
+                <figcaption class="orbit-caption">
+                    <h1>Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.</h1>
+                </figcaption>
+            </li>
+        </ul>
+    </div>
 </div>
 <div class="row column text-center">
     <h2>Our Newest Products</h2>
@@ -232,10 +242,8 @@
 <div class="callout large secondary">
     <div class="row">
         <div class="large-4 columns">
-            <h5>Vivamus Hendrerit Arcu Sed Erat Molestie</h5>
-            <p>Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit
-                amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                Sed molestie augue sit.</p>
+            <h5> Corner Market </h5>
+            <p>Corner Market is an American small retail corporation. The company was founded in a UCF Coding Bootcamp Class in 2020.</p>
         </div>
         <div class="large-3 large-offset-2 columns">
             <ul class="menu vertical">

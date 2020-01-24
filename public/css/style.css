@@ -5,9 +5,11 @@ a {
     color: mediumseagreen;
     background-color: none;
 }
+
 #liSearchBtn {
     border-color: mediumseagreen ;
     background-color: #ffffff;
+    margin: 10px;
 }
 #groceryStoreName {
     cursor: pointer;
@@ -44,4 +46,7 @@ a {
 .customerService {
     background-color: none;
 
+}
+.homepageBtn {
+    justify-content: center;
 }
