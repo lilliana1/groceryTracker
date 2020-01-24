@@ -3,7 +3,9 @@ const db = require("../models");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    db.Products.findAll({}).then(dbProducts => {
+    db.Products.findAll({
+      limit: 9
+    }).then(dbProducts => {
       const data = dbProducts;
       res.render("index", data);
     });
