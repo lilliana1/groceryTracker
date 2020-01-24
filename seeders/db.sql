@@ -18,7 +18,7 @@ CREATE TABLE Users(
   email VARCHAR(500),
   password VARCHAR(70)
 );
-CREATE TABLE Grocery_List(
+CREATE TABLE Grocery_Lists(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   productId INT NOT NULL,
   userId INT NOT NULL,
