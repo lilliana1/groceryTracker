@@ -88,17 +88,6 @@ module.exports = function(app) {
     });
   });
 
-  // Route for getting a product by ID
-  app.get("/api/products/:id", (req, res) => {
-    db.Products.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(dbProducts => {
-      res.json(dbProducts);
-    });
-  });
-
   // Route for getting a product by name
   app.get("/api/products/:name", (req, res) => {
     db.Products.findAll({
