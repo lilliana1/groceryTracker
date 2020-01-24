@@ -15,15 +15,19 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/createUser", (req, res) => {
+    console.log(req.body);
     db.Users.create({
+      first_name: req.body.firstName,
+      last_name: req.body.lastName,
       email: req.body.email,
       password: req.body.password
     })
-      .then(() => {
-        res.redirect(307, "/api/login");
+
+      .then(function() {
+        res.redirect(307, "/login");
       })
-      .catch((err) => {
-        res.status(401).json(err);
+      .catch(function(err) {
+        console.log(err);      
       });
   });
 
