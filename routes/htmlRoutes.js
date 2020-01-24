@@ -14,8 +14,15 @@ module.exports = function(app) {
   app.get("/register", (req, res) => {
     res.render("register");
   });
-  app.get("/product", (req, res) => {
-    res.render("product");
+   // Route for getting a product by ID
+   app.get("/products/:id", (req, res) => {
+    db.Products.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbProducts => {
+      res.render("product", dbProducts);
+    });
   });
   app.get("/shopping", (req, res) => {
     res.render("login");
