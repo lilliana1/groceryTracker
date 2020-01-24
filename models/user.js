@@ -7,23 +7,34 @@ const bcrypt = require("bcryptjs");
 // bcrypt will be used for hashing and salting of the password as well.
 
 module.exports = function(sequelize, DataTypes) {
-  const Users = sequelize.define("Users", {
-    id: { type: DataTypes.INTEGER, primaryKey: true },
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
+  const Users = sequelize.define(
+    "Users",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        notNull: true
+      },
+      first_name: DataTypes.STRING,
+      last_name: DataTypes.STRING,
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true
+        }
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
       }
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
+    {
+      timestamps: false
     }
-  });
+  );
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   Users.prototype.validPassword = function(password) {

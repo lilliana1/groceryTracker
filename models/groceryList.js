@@ -14,6 +14,7 @@ const Products = require("./product");
 module.exports = function(sequelize, DataTypes) {
   const groceryList = sequelize.define("Grocery_List", {
     // reference the products by ID from the products table
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, notNull: true },
     productId: {
       type: DataTypes.INTEGER,
       references: {
@@ -29,7 +30,9 @@ module.exports = function(sequelize, DataTypes) {
         key: "id"
       }
     }
-  });
+  }, {
+    timestamps: false
+    });
 
   return groceryList;
 };

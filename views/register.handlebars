@@ -4,38 +4,39 @@
     <div class="form-icons">
       <h4>Register for an account</h4>
       <p>Please fill in this form to create an account.</p>
+      <p id="passMatch" style="color: red;"></p>
       <div class="input-group">
         <span class="input-group-label">
           <i class="fa fa-user"></i>
         </span>
-        <input class="input-group-field" type="text" placeholder="First name" name="firstName">
+        <input class="input-group-field" id="firstName" type="text" placeholder="First name" name="firstName">
       </div>
       <div class="input-group">
         <span class="input-group-label">
           <i class="fa fa-user"></i>
         </span>
-        <input class="input-group-field" type="text" placeholder="Last name" name="lastName">
+        <input class="input-group-field" id="lastName" type="text" placeholder="Last name" name="lastName">
       </div>
 
       <div class="input-group">
         <span class="input-group-label">
           <i class="fa fa-envelope"></i>
         </span>
-        <input class="input-group-field" type="email" placeholder="Email" name="email">
+        <input class="input-group-field" id="email" type="email" placeholder="Email" name="email">
       </div>
 
       <div class="input-group">
         <span class="input-group-label">
           <i class="fa fa-key"></i>
         </span>
-        <input class="input-group-field" type="password" placeholder="Password" j name="password">
+        <input class="input-group-field" id="password" type="password" placeholder="Password" j name="password">
       </div>
     </div>
     <div class="input-group">
       <span class="input-group-label">
         <i class="fa fa-key"></i>
       </span>
-      <input class="input-group-field" type="password" placeholder="Repeat Password" name="password2">
+      <input class="input-group-field" id="passwordTwo" type="password" placeholder="Repeat Password" name="password2">
     </div>
     <button type="submit" class="button createAccount">Create Account</button>
     <form action="/">
