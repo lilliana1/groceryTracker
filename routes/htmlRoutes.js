@@ -1,5 +1,5 @@
 const path = require("path");
-const API = require("./apiRoutes");
+const db = require("../models");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
