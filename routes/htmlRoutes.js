@@ -1,8 +1,14 @@
-var path = require("path");
+const path = require("path");
+const db = require("../models");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    res.render("index");
+    db.Products.findAll({
+      limit: 9
+    }).then(dbProducts => {
+      const data = dbProducts;
+      res.render("index", data);
+    });
   });
   // app.get("/", (req, res) => {
   //   let data = res.json();
@@ -15,8 +21,15 @@ module.exports = function(app) {
   app.get("/register", (req, res) => {
     res.render("register");
   });
-  app.get("/product", (req, res) => {
-    res.render("product");
+   // Route for getting a product by ID
+   app.get("/products/:id", (req, res) => {
+    db.Products.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbProducts => {
+      res.render("product", dbProducts);
+    });
   });
   app.get("/shopping", (req, res) => {
     res.render("login");

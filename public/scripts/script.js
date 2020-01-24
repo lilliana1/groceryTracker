@@ -32,12 +32,38 @@ $(function() {
         }
       })
         .then(response => {
-          console.log(response);
+          data = response.json();
+
+          location.href = "../signin";
+        })
+        .then(data => {
+          console.log(data);
         })
         .catch(err => {
           console.log(`Error occured ${err}`);
         });
     }
   });
-});
 
+  const logIn = document.querySelector(".logIn");
+  logIn.addEventListener("click", event => {
+    event.preventDefault();
+    let email = document.querySelector("#email").value;
+    let password = document.querySelector("#password").value;
+    let userData = {
+      email,
+      password
+    };
+    $.post("/api/login", {
+      email: email,
+      password: password
+    })
+      .then(response => {
+        console.log(response);
+        window.location.href = "../shopping";
+      })
+      .catch(err => {
+        console.log(`Error: ${err}`);
+      });
+  });
+});

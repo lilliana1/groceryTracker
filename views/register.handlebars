@@ -5,6 +5,9 @@
       <h4>Register for an account</h4>
       <p>Please fill in this form to create an account.</p>
       <p id="passMatch" style="color: red;"></p>
+      {{#if msg}}
+      <p>{{msg}}</p>
+      {{/if}}
       <div class="input-group">
         <span class="input-group-label">
           <i class="fa fa-user"></i>
@@ -17,14 +20,12 @@
         </span>
         <input class="input-group-field" id="lastName" type="text" placeholder="Last name" name="lastName">
       </div>
-
       <div class="input-group">
         <span class="input-group-label">
           <i class="fa fa-envelope"></i>
         </span>
         <input class="input-group-field" id="email" type="email" placeholder="Email" name="email">
       </div>
-
       <div class="input-group">
         <span class="input-group-label">
           <i class="fa fa-key"></i>
