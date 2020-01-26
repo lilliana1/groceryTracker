@@ -1,15 +1,19 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
-const passport = require("../config/passport");
+const passport = require("passport");
+const { ensureAuthenticated, forwardAuthenticated } = require("../config/auth");
 
 // eslint-disable-next-line func-names
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    console.log(req.body);
-    res.json(req.user);
+  app.post("/api/login", (req, res, next) => {
+    passport.authenticate("local", {
+      successRedirect: "/shopping",
+      failureRedirect: "/",
+      failureFlash: true
+    })(req, res, next);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -23,30 +27,30 @@ module.exports = function(app) {
       }
     })
       .then(user => {
-        // console.log(user);
-        if (!user) {
+        if (user) {
+          res.send({ msg: "Email already exists" });
+        } else {
           db.Users.create({
             first_name: req.body.firstName,
             last_name: req.body.lastName,
             email: req.body.email,
             password: req.body.password
           })
-
             .then(() => {
-              res.status(200).end();
+              res.redirect("/signin");
             })
             .catch(err => {
-              // console.log(err);
+              console.log(err);
             });
-        } else {
-          console.log("hello");
-          errors.push({ msg: "Email already exists" });
-          res.json(errors);
         }
       })
       .catch(err => {
-        // console.log(`Error : ${err}`);
+        console.log(`Error : ${err}`);
       });
+  });
+
+  app.get("/shopping", ensureAuthenticated, (req, res) => {
+    res.render("login");
   });
 
   // Route for logging user out
