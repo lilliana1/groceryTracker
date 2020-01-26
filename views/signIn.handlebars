@@ -1,19 +1,17 @@
 <br>
 <div id="signInDiv">
 
-    <form class="log-in-form">
-
+    <form class="log-in-form" method="POST" action="/api/login">
         <h4 class="text-center">Log in with you email account</h4>
         <label>Email
-            <input type="email" id="email" placeholder="somebody@example.com" required>
+            <input type="email" id="email" name="email" placeholder="somebody@example.com" required>
         </label>
         <label>Password
-            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
         </label>
-        <p><input type="submit" class="button expanded logIn" value="Log in"></input></p>
-        <p class="text-center"><a href="#">Forgot your password?</a></p>    
+        <button type="submit" class="button expanded logIn">Log in</button>
     </form>
     <form action="/">
-      <button class="button homepageBtn">Back to Homepage</button>
+        <button class="button homepageBtn">Back to Homepage</button>
     </form>
 </div>
