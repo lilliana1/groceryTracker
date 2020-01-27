@@ -12,7 +12,7 @@ CREATE TABLE Products(
   barcode VARCHAR(30)
 );
 CREATE TABLE Users(
-  id INT PRIMARY KEY,
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(500),
   last_name VARCHAR(500),
   email VARCHAR(500),

@@ -22,5 +22,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
 
+  Products.associate = function(models) {
+    Products.belongsTo(models.Grocery_List, {
+      foreignKey: "id",
+      targetKey: "productId"
+    });
+  };
+
   return Products;
 };

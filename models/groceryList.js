@@ -18,11 +18,7 @@ module.exports = function(sequelize, DataTypes) {
         notNull: true
       },
       productId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "Products",
-          key: "id"
-        }
+        type: DataTypes.INTEGER
       },
       // reference the user by their ID from the user table
       userId: {
@@ -37,6 +33,13 @@ module.exports = function(sequelize, DataTypes) {
       timestamps: false
     }
   );
+
+  groceryList.associate = function(models) {
+    groceryList.hasMany(models.Products, {
+      foreignKey: "id",
+      sourceKey: "productId"
+    });
+  };
 
   return groceryList;
 };
