@@ -1,8 +1,10 @@
 const path = require("path");
 const db = require("../models");
+const { ensureAuthenticated, forwardAuthenticated } = require("../config/auth");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
+    console.log(req.user);
     db.Products.findAll({ limit: 8 }).then(dbProducts => {
       res.render("index", { data: dbProducts, user: req.user });
     });
@@ -24,7 +26,8 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/shopping/:id", (req, res) => {
+  app.get("/shopping/:id", ensureAuthenticated, (req, res) => {
+    console.log(req.user);
     db.Products.findOne({
       where: {
         id: req.params.id

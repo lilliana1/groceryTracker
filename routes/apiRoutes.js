@@ -48,8 +48,8 @@ module.exports = function(app) {
   app.get("/shopping", ensureAuthenticated, (req, res) => {
     console.log(req.user);
     db.Products.findAll({ limit: 8 }).then(dbProducts => {
-      console.log(dbProducts);
-      res.render("login", { data: dbProducts });
+      // console.log(dbProducts);
+      res.render("login", { data: dbProducts, user: req.user });
     });
   });
 
