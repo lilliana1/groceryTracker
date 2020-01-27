@@ -1,0 +1,59 @@
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="menu">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text" id="groceryStoreName">Corner Market</li>
+                <li>
+                    <a href="#">Categories</a>
+                    <ul class="menu">
+                        <li><a href="/category">Fruits</a></li>
+                        <li><a href="#">bla bla </a></li>
+                        <li><a href="#">bla bla </a></li>
+                        <li><a href="#">bla bla </a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><input type="search" placeholder="Search"></li>
+            <li><button class="hollow button" id="liSearchBtn" href="#">Search</button>
+            <li><a href="/register" id="createAccount">Register</a></li>
+            <li><a href="/signin" id="signIn">Sign In</a></li>
+        </ul>
+    </div>
+</div>
+
+<br>
+
+<div class="row columns">
+    <nav>
+        <ul class="breadcrumbs">
+            <li onclick="location.href='/shopping';"><a>back</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="row">
+    <div class="medium-6 columns">
+        <img class="thumbnail" src="{{dataValues.image_src}}">
+    </div>
+    <div class="medium-6 large-5 columns">
+        <div class="column">
+            <h3>{{dataValues.product_name}}</h3>
+            <p>{{dataValues.selling_price}}</p>
+            <label>Quantity
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </label>
+            <a href="#" class="button large expanded">Buy Now</a>
+        </div>
+    </div>
+</div>
+</div>
