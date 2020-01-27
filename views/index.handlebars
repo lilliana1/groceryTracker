@@ -19,6 +19,19 @@
     </div>
     <div class="top-bar-right">
         <ul class="menu">
+            {{!-- <div class="top-bar-right">
+            <ul class="menu">
+            {{#each product}}
+            <li><input type="search" placeholder="Search"></li>
+            <li><button class="hollow button" id="liSearchBtn">Search</button>
+            {{.}} {{lookup ../product_name @index}}
+            {{/each}} --}}
+            <li><a href="/register" id="createAccount">Register</a></li>
+            <li><a href="/signin" id="signIn">Sign In</a></li>
+        </ul>
+    </div>
+</div>
+
             <li><input type="search" placeholder="Search"></li>
             <li><button class="hollow button" id="liSearchBtn" href="#">Search</button>
             <li><a href="/register" id="createAccount">Register</a></li>
