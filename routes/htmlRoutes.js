@@ -22,7 +22,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(dbProducts => {
-      res.render("product", dbProducts);
+      res.render("product", { data: dbProducts, user: req.user });
     });
   });
 
@@ -33,7 +33,10 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(dbProducts => {
-      res.render("loggedInProduct", { dbProducts: dbProducts, user: req.user });
+
+
+      res.render("loggedInProduct", { data: dbProducts, user: req.user });
+
     });
   });
   app.get("/category/:category", (req, res) => {
@@ -41,7 +44,7 @@ module.exports = function(app) {
       where: { category: req.params.category },
       limit: 100
     }).then(dbProducts => {
-      res.render("category", { data: dbProducts });
+      res.render("category", { data: dbProducts, user: req.user });
     });
   });
 };
