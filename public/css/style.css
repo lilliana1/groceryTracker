@@ -1,59 +1,71 @@
 body {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 a {
-    color: mediumseagreen;
-    background-color: none;
+  color: mediumseagreen;
+  background-color: none;
 }
 
 #liSearchBtn {
-    border-color: mediumseagreen ;
-    background-color: #ffffff;
-    margin: 10px;
+  border-color: mediumseagreen;
+  background-color: #ffffff;
+  margin: 10px;
 }
 #groceryStoreName {
-    cursor: pointer;
-    background-color: #ffffff;
+  cursor: pointer;
+  background-color: #ffffff;
 }
-.top-bar{
-    background-color: #ffffff;
+.top-bar {
+  background-color: #ffffff;
 }
-.menu>li {
-    background-color: #ffffff;
+.menu > li {
+  background-color: #ffffff;
 }
 
 .fullscreen-image-slider .orbit-image {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 .fullscreen-image-slider .orbit-caption {
-    bottom: 50%;
-    -webkit-transform: translateY(50%);
-        -ms-transform: translateY(50%);
-            transform: translateY(50%);
-    background: none;
-    text-align: center;
-    color: #fefefe;
-    font-weight: bold;
+  bottom: 50%;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+  background: none;
+  text-align: center;
+  color: #fefefe;
+  font-weight: bold;
 }
 .getToKnowUs {
-    background-color: none;
+  background-color: none;
 }
 .getToKnowUs {
-    background-color: none;
+  background-color: none;
 }
 .customerService {
-    background-color: none;
-
+  background-color: none;
 }
 .homepageBtn {
-    align-content: center;
+  align-content: center;
 }
 .fullscreen-image-slider .orbit-image {
-    width: 100%;
-    height: 80vh;
+  width: 100%;
+  height: 80vh;
 }
 .top-bar {
-    padding: 0%;
+  padding: 0%;
+}
+
+.itemObject {
+  width: 20%;
+  height: 400px;
+  float: left;
+  margin: 20px;
+}
+
+.allItems {
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
 }
