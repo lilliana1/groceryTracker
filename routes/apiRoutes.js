@@ -105,26 +105,26 @@ module.exports = function(app) {
 
   // Route for adding a product to cart
   app.post("/api/addToCart/:id", (req, res) => {
-    db.groceryList
-      .create({
-        userId: req.user.id,
-        productId: req.params.id
-      })
-      .then(dbProducts => {
-        res.json(dbProducts);
-      });
+    db.Grocery_List.create({
+      userId: req.user.id,
+      productId: req.params.id
+    }).then(data => {
+      res.json(data);
+    });
   });
 
   // Route for getting a users cart
   app.get("/api/getCart", (req, res) => {
-    db.groceryList
-      .findAll({
-        where: {
-          userId: req.user.id
+    db.Grocery_List.findAll({
+      where: { userId: 1 },
+      include: [
+        {
+          model: db.Products,
+          required: true
         }
-      })
-      .then(dbProducts => {
-        res.json(dbProducts);
-      });
+      ]
+    }).then(data => {
+      res.json(data);
+    });
   });
 };
