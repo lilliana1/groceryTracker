@@ -6,10 +6,14 @@
                 <li>
                     <a href="#">Categories</a>
                     <ul class="menu">
-                        <li><a href="/category">Fruits</a></li>
-                        <li><a href="#">bla bla </a></li>
-                        <li><a href="#">bla bla </a></li>
-                        <li><a href="#">bla bla </a></li>
+                        <li><a href="/category/DAIRY">Dairy </a></li>
+                        <li><a href="/category/BAKERY">Bakery </a></li>
+                        <li><a href="/category/DELI+MEAT+&+CHEESE">Deli Meat and Cheese </a></li>
+                        <li><a href="/category/PREPARED+FOODS">Prepared Foods </a></li>
+                        <li><a href="/category/FROZEN+FOODS">Frozen Foods </a></li>
+                        <li><a href="/category/SNACKS">Snacks </a></li>
+                        <li><a href="/category/CANDY">Candy </a></li>
+                        <li><a href="/category/HEALTH+&+BEAUTY+CARE">Health and Beauty Care </a></li>
                     </ul>
                 </li>
             </ul>
@@ -21,7 +25,7 @@
         <ul class="menu">
             {{!-- <div class="top-bar-right">
             <ul class="menu">
-            {{#each product}}
+            {{#each data}}
             <li><input type="search" placeholder="Search"></li>
             <li><button class="hollow button" id="liSearchBtn">Search</button>
             {{.}} {{lookup ../product_name @index}}
@@ -80,6 +84,7 @@
 <div class="container">
     <div class="row allItems">
         {{#each data}}
+
         <div class="column itemObject">
             <img class="thumbnail" src="{{dataValues.image_src}}">
             <h5>{{dataValues.product_name}}</h5>
@@ -87,6 +92,7 @@
             <a href="/{{dataValues.id}}" class="button expanded">View</a>
         </div>
         {{/each}}
+
     </div>
 
 </div>
