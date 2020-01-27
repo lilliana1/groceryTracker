@@ -38,13 +38,12 @@
     </div>
     <div class="row">
         <div class="medium-6 columns">
-            <img class="thumbnail" src="">
+            <img class="thumbnail" src="{{dataValues.image_src}}">
         </div>
         <div class="medium-6 large-5 columns">
-            <h3>My Awesome Product</h3>
-            <p>Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque
-                faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas
-                purus in.</p>
+        <div class="column">
+            <h3>{{dataValues.product_name}}</h3>
+            <p>{{dataValues.selling_price}}</p>
             <label>Quantity
                 <select>
                     <option value="1">1</option>
