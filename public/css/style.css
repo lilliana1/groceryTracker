@@ -50,3 +50,10 @@ a {
 .homepageBtn {
     align-content: center;
 }
+.fullscreen-image-slider .orbit-image {
+    width: 100%;
+    height: 80vh;
+}
+.top-bar {
+    padding: 0%;
+}
