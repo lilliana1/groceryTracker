@@ -79,12 +79,12 @@
 <div class="row small-up-2 large-up-4">
     <div class="column">
         {{#each data}}
-        <img class="thumbnail" src="{{dbProducts.img_src}}">
-        <h5>{{product_name}}</h5>
-        <p>{{selling_price}}</p>
-        <a href="/product/{{id}}" class="button expanded">Buy</a>
+        <img class="thumbnail" src="{{dataValues.image_src}}">
+        <h5>{{dataValues.product_name}}</h5>
+        <p>{{dataValues.selling_price}}</p>
+        <a href="/product/{{id}}" class="button expanded">View</a>
         {{/each}}
-
+   
 
 
         
