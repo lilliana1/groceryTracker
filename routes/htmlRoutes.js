@@ -33,7 +33,10 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(dbProducts => {
+
+
       res.render("loggedInProduct", { data: dbProducts, user: req.user });
+
     });
   });
   app.get("/category/:category", (req, res) => {
