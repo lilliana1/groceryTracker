@@ -46,7 +46,10 @@ module.exports = function(app) {
   });
 
   app.get("/shopping", ensureAuthenticated, (req, res) => {
-    res.render("login");
+    db.Products.findAll({ limit: 8 }).then(dbProducts => {
+      console.log(dbProducts);
+      res.render("login", { data: dbProducts });
+    });
   });
 
   // Route for logging user out
