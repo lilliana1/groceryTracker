@@ -42,8 +42,8 @@
         <div class="column itemObject">
             <img class="thumbnail" src="{{dataValues.image_src}}">
             <h5>{{dataValues.product_name}}</h5>
-            <p>$ {{dataValues.selling_price}}</p>
-            <a href="/{{dataValues.id}}" class="button expanded">View</a>
+            <p>{{dataValues.selling_price}}</p>
+            <a href="/product/{{dataValues.id}}" class="button expanded">View</a>
         </div>
         {{/each}}
 
