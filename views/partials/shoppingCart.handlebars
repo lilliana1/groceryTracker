@@ -1,29 +1,3 @@
-<div class="top-bar">
-    <div class="top-bar-left">
-        <ul class="menu">
-            <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text" id="groceryStoreName">Corner Market</li>
-                <li>
-                    <a href="">Categories</a>
-                    <ul class="menu">
-                        <li><a href="/category/DAIRY">Dairy </a></li>
-                        <li><a href="/category/BAKERY">Bakery </a></li>
-                        <li><a href="/category/GROCERY">Grocery </a></li>
-                        <li><a href="/category/DELI%20MEAT%20&%20CHEESE">Deli Meat and Cheese </a></li>
-                        <li><a href="/category/PREPARED%20FOODS">Prepared Foods </a></li>
-                        <li><a href="/category/FROZEN%20FOODS">Frozen Foods </a></li>
-                        <li><a href="/category/SNACKS">Snacks </a></li>
-                        <li><a href="/category/CANDY">Candy </a></li>             
-                    </ul>
-                </li>
-            </ul>
-        </ul>
-    </div>
-    <div class="top-bar-right">
-        <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button class="hollow button" id="liSearchBtn" href="#">Search</button>
-                <!--shopping cart-->
                 <button type="button-hover" href="/shopping" class="shopping-cart-button float-right"
                     data-toggle="shopping-cart-dropdown">
                     <i class="fa fa-shopping-cart"></i>
@@ -31,11 +5,11 @@
                 </button>
                 <div class="shopping-cart-dropdown-pane">
                     <div class="dropdown-pane bottom " id="shopping-cart-dropdown" data-dropdown data-hover-pane="true">
-
-                        <div class="shopping-cart-item">
+{{#each shopping}}
+<div class="shopping-cart-item">
                             <div class="shopping-cart-item-name">
-                                <p> <span> 4 </span>      <span>    Apple </span> </p>
-                                <a class="shopping-cart-title"></a>
+                                <p> <span> {{dataValues.selling_price}} </span>      <span> {{dataValues.product_name}} </span> </p>
+                                <a class="shopping-cart-title" href="/product/{{dataValues.id}}">Page</a>
 
                             </div>
                             <div class="shopping-cart-item-price">
@@ -43,9 +17,6 @@
 
                             </div>
                         </div>
+        {{/each}}
                         <a href="#" class="button shopping-cart-checkout expanded">Checkout</a>
                     </div>
-                </div>
-        </ul>
-    </div>
-</div>
