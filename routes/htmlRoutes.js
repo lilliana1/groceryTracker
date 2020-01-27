@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports = function(app) {
   app.get("/", (req, res) => {
     db.Products.findAll({ limit: 9 }).then(dbProducts => {
-      res.render("index", { data: dbProducts });
+      res.render("index", { data: dbProducts, user: req.user });
     });
   });
   app.get("/signin", (req, res) => {
