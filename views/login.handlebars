@@ -1,47 +1,86 @@
-<div class="top-bar">
-    <div class="top-bar-left">
-        <ul class="menu">
-            <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text" id="groceryStoreName">Corner Market</li>
-                <li>
-                    <a href="#">Categories</a>
-                    <ul class="menu">
-                        <li><a href="#">bla bla </a></li>
-                        <li><a href="#">bla bla </a></li>
-                        <li><a href="#">bla bla </a></li>
-                        <li><a href="#">bla bla </a></li>
-                    </ul>
-                </li>
-            </ul>
+<div class="fullscreen-image-slider">
+    <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit>
+        <ul class="orbit-container">
+            <button class="orbit-previous">
+                <span class="show-for-sr">Previous Slide</span>
+                <span class="nav fa fa-chevron-left fa-3x"></span>
+            </button>
+            <button class="orbit-next">
+                <span class="show-for-sr">Next Slide</span>
+                <span class="nav fa fa-chevron-right fa-3x"></span>
+            </button>
+            <li class="is-active orbit-slide">
+                <img class="orbit-image" src="images/aisle.jpg" alt="aisle">
+            </li>
+            <li class="orbit-slide">
+                <img class="orbit-image" src="images/vegetable.jpg" alt="vegetables">
+            </li>
+            <li class="orbit-slide">
+                <img class="orbit-image" src="images/cheese.jpg" alt="cheese display">
+            </li>
+            <li class="orbit-slide">
+                <img class="orbit-image" src="images/vegetable1.jpg" alt="vegetables">
+            </li>
+            <li class="orbit-slide">
+                <img class="orbit-image" src="images/vegetables2.jpg" alt="vegetables">
+            </li>
         </ul>
     </div>
-    <div class="top-bar-right">
-        <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button class="hollow button" id="liSearchBtn" href="#">Search</button>
-                <!--shopping cart-->
-                <button type="button-hover" href="/shopping" class="shopping-cart-button float-right button"
-                    data-toggle="shopping-cart-dropdown">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span class="text">Shopping Cart</span>
-                </button>
-                <div class="shopping-cart-dropdown-pane">
-                    <div class="dropdown-pane bottom " id="shopping-cart-dropdown" data-dropdown data-hover-pane="true">
+</div>
 
-                        <div class="shopping-cart-item">
-                            <div class="shopping-cart-item-name">
-                                <p> <span> 4 </span> <span> Apple </span> </p>
-                                <a class="shopping-cart-title"></a>
 
-                            </div>
-                            <div class="shopping-cart-item-price">
-                                <a href="#">Remove</a>
+<div class="row column text-center">
+    <br>
+    <h2>Products</h2>
+    <hr>
+</div>
 
-                            </div>
-                        </div>
-                        <a href="#" class="button shopping-cart-checkout expanded">Checkout</a>
-                    </div>
+<div class="container">
+    <div class="row allItems">
+        {{#each data}}
+
+        <div class="column itemObject">
+            <img class="thumbnail" src="{{dataValues.image_src}}">
+            <h5>{{dataValues.product_name}}</h5>
+            <p>{{dataValues.selling_price}}</p>
+            <a href="/shopping/{{dataValues.id}}" class="button expanded">View</a>
+        </div>
+        {{/each}}
+
+    </div>
+
+</div>
+
+<hr>
+<hr>
+<div class="callout large secondary">
+    <div class="row">
+        <div class="large-4 columns">
+            <h5> Corner Market </h5>
+            <p>Corner Market is an American small retail corporation. The company was founded in a UCF Coding Bootcamp
+                Class in 2020.</p>
+        </div>
+        <div class="large-3 large-offset-2 columns">
+            <ul class="menu vertical">
+                <div class="getToKnowUs">
+                    <li>Get to Know Us</li>
+                    <li><a href="#">Our Company</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Suppliers</a></li>
                 </div>
-        </ul>
+
+            </ul>
+        </div>
+        <div class="large-3 columns">
+            <ul class="menu vertical">
+                <div class="customerService">
+                    <li>Customer Service</li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Returns</a></li>
+                </div>
+
+            </ul>
+        </div>
     </div>
 </div>
