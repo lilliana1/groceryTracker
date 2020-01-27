@@ -41,7 +41,7 @@
 </div>
 
 <div class="fullscreen-image-slider">
-    <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit >
+    <div class="orbit" role="region" aria-label="FullScreen Pictures" data-orbit>
         <ul class="orbit-container">
             <button class="orbit-previous">
                 <span class="show-for-sr">Previous Slide</span>
@@ -76,35 +76,37 @@
     <h2>Products</h2>
     <hr>
 </div>
-<div class="row small-up-2 large-up-4">
-    <div class="column">
+
+<div class="container">
+    <div class="row allItems">
         {{#each data}}
-        <img class="thumbnail" src="{{dataValues.image_src}}">
-        <h5>{{dataValues.product_name}}</h5>
-        <p>{{dataValues.selling_price}}</p>
-        <a href="{{dataValues.id}}" class="button expanded">View</a>
+        <div class="column itemObject">
+            <img class="thumbnail" src="{{dataValues.image_src}}">
+            <h5>{{dataValues.product_name}}</h5>
+            <p>{{dataValues.selling_price}}</p>
+            <a href="/product/{{dataValues.id}}" class="button expanded">View</a>
+        </div>
         {{/each}}
-
-
-
-
     </div>
+
 </div>
+
 <hr>
 <hr>
 <div class="callout large secondary">
     <div class="row">
         <div class="large-4 columns">
             <h5> Corner Market </h5>
-            <p>Corner Market is an American small retail corporation. The company was founded in a UCF Coding Bootcamp Class in 2020.</p>
+            <p>Corner Market is an American small retail corporation. The company was founded in a UCF Coding Bootcamp
+                Class in 2020.</p>
         </div>
         <div class="large-3 large-offset-2 columns">
             <ul class="menu vertical">
                 <div class="getToKnowUs">
-                <li>Get to Know Us</li>
-                <li><a href="#">Our Company</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Suppliers</a></li>
+                    <li>Get to Know Us</li>
+                    <li><a href="#">Our Company</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Suppliers</a></li>
                 </div>
 
             </ul>
@@ -112,10 +114,10 @@
         <div class="large-3 columns">
             <ul class="menu vertical">
                 <div class="customerService">
-                <li>Customer Service</li>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Returns</a></li>
+                    <li>Customer Service</li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Returns</a></li>
                 </div>
 
             </ul>
