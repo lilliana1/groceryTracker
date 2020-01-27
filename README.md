@@ -1,4 +1,7 @@
 # Corner Mart Grocery:
+
+![screenshot](img/image.png)
+
 Corner Mart Grocery is an application built for easily viewing large amounts of products from a grocer in a user friendly way. At its core this application takes a large dataset stored in MYSQL, dynamically builds product pages based off of the information in a vast database.
 
 We also give users the ability to create their own user accounts and create shopping carts that are tied to their user account. This simply being a passport and bcrypt authentication system whereas the shopping cart is a relational database where a user ID is related to a product ID and gathering all products corresponding to a specific user ID gives us their shopping card.
