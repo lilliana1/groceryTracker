@@ -22,7 +22,8 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(dbProducts => {
-      res.render("product", { data: dbProducts, user: req.user });
+    console.log(dbProducts)
+      res.render("product", { dbProducts, user: req.user });
     });
   });
 
@@ -35,7 +36,7 @@ module.exports = function(app) {
     }).then(dbProducts => {
 
 
-      res.render("loggedInProduct", { data: dbProducts, user: req.user });
+      res.render("loggedInProduct", { dbProducts, user: req.user });
 
     });
   });
