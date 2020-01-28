@@ -8,8 +8,8 @@
         {{#each shopping}}
         <div class="shopping-cart-item">
             <div class="shopping-cart-item-name">
-                <p> <span> {{dataValues.selling_price}} </span> <span> {{dataValues.product_name}} </span> </p>
-                <a class="shopping-cart-title" href="/product/{{dataValues.id}}">Page</a>
+                <p> <span> {{Products.0.selling_price}} </span> <span> {{Products.0.product_name}} </span> </p>
+                <a class="shopping-cart-title" href="/product/{{Products.0.id}}">Page</a>
 
             </div>
             <div class="shopping-cart-item-price">

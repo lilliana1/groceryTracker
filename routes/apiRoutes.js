@@ -56,14 +56,19 @@ module.exports = function(app) {
         }
       ]
     }).then(cartData => {
-      let shoppingData = cartData;
-      console.log(shoppingData);
+      // we're doing this god awful black magic because for
+      // some reason sequelize doesn't send back a nice json object for us
+      // i'm sorry
+      let shoppingData = JSON.stringify(cartData);
+      let actualShoppingData = JSON.parse(shoppingData);
+
+      // we still need to call the demo products for the landing page so this call stays here
       db.Products.findAll({ limit: 8 }).then(dbProducts => {
         // console.log(dbProducts);
         res.render("login", {
           data: dbProducts,
           user: req.user,
-          shopping: shoppingData
+          shopping: actualShoppingData
         });
       });
     });
