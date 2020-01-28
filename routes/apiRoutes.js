@@ -46,11 +46,31 @@ module.exports = function(app) {
   });
 
   app.get("/shopping", ensureAuthenticated, (req, res) => {
-    console.log(req.user);
-    db.Products.findAll({ limit: 8 }).then(dbProducts => {
-      // console.log(dbProducts);
-      res.render("login", { data: dbProducts, user: req.user });
+    console.log(`User id: ${req.user}`);
+    db.Grocery_List.findAll({
+      where: { userId: req.user },
+      include: [
+        {
+          model: db.Products,
+          required: true
+        }
+      ]
+    }).then(cartData => {
+      let shoppingData = cartData;
+      console.log(shoppingData);
+      db.Products.findAll({ limit: 8 }).then(dbProducts => {
+        // console.log(dbProducts);
+        res.render("login", {
+          data: dbProducts,
+          user: req.user,
+          shopping: shoppingData
+        });
+      });
     });
+    // db.Products.findAll({ limit: 8 }).then(dbProducts => {
+    //   // console.log(dbProducts);
+    //   res.render("login", { data: dbProducts, user: req.user });
+    // });
   });
 
   // Route for logging user out
