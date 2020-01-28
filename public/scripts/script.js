@@ -76,7 +76,6 @@ function addToCart(id) {
 
   fetch(url, otherParam).then(data => {
     return data.json;
+    location.reload();
   });
-
-  location.reload();
 }
