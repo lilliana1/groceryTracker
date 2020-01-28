@@ -67,3 +67,16 @@
 //       });
 //   });
 // });
+
+function addToCart(id) {
+  const url = `http://localhost:8080/api/addToCart/${id}`;
+  const otherParam = {
+    method: "POST"
+  };
+
+  fetch(url, otherParam).then(data => {
+    return data.json;
+  });
+
+  location.reload();
+}

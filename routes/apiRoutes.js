@@ -131,7 +131,7 @@ module.exports = function(app) {
   // Route for adding a product to cart
   app.post("/api/addToCart/:id", (req, res) => {
     db.Grocery_List.create({
-      userId: req.user.id,
+      userId: req.user,
       productId: req.params.id
     }).then(data => {
       res.json(data);
