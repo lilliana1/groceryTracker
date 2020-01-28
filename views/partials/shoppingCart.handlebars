@@ -1,22 +1,22 @@
-                <button type="button-hover" href="/shopping" class="shopping-cart-button float-right"
-                    data-toggle="shopping-cart-dropdown">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span class="text">Shopping Cart</span>
-                </button>
-                <div class="shopping-cart-dropdown-pane">
-                    <div class="dropdown-pane bottom " id="shopping-cart-dropdown" data-dropdown data-hover-pane="true">
-{{#each shopping}}
-<div class="shopping-cart-item">
-                            <div class="shopping-cart-item-name">
-                                <p> <span> {{dataValues.selling_price}} </span>      <span> {{dataValues.product_name}} </span> </p>
-                                <a class="shopping-cart-title" href="/product/{{dataValues.id}}">Page</a>
+<button type="button-hover" href="/shopping" class="shopping-cart-button float-right"
+    data-toggle="shopping-cart-dropdown">
+    <i class="fa fa-shopping-cart"></i>
+    <span class="text cartBtn">Shopping Cart</span>
+</button>
+<div class="shopping-cart-dropdown-pane">
+    <div class="dropdown-pane bottom " id="shopping-cart-dropdown" data-dropdown data-hover-pane="true">
+        {{#each shopping}}
+        <div class="shopping-cart-item">
+            <div class="shopping-cart-item-name">
+                <p> <span> {{Products.0.selling_price}} </span> <span> {{Products.0.product_name}} </span> </p>
+                <a class="shopping-cart-title" href="/product/{{Products.0.id}}">Page</a>
 
-                            </div>
-                            <div class="shopping-cart-item-price">
-                                <a href="#">Remove</a>
+            </div>
+            <div class="shopping-cart-item-price">
+                <a href="#">Remove</a>
 
-                            </div>
-                        </div>
+            </div>
+        </div>
         {{/each}}
-                        <a href="#" class="button shopping-cart-checkout expanded">Checkout</a>
-                    </div>
+        <a href="#" class="button shopping-cart-checkout expanded">Checkout</a>
+    </div>

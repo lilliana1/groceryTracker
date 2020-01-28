@@ -46,11 +46,36 @@ module.exports = function(app) {
   });
 
   app.get("/shopping", ensureAuthenticated, (req, res) => {
-    console.log(req.user);
-    db.Products.findAll({ limit: 8 }).then(dbProducts => {
-      // console.log(dbProducts);
-      res.render("login", { data: dbProducts, user: req.user });
+    console.log(`User id: ${req.user}`);
+    db.Grocery_List.findAll({
+      where: { userId: req.user },
+      include: [
+        {
+          model: db.Products,
+          required: true
+        }
+      ]
+    }).then(cartData => {
+      // we're doing this god awful black magic because for
+      // some reason sequelize doesn't send back a nice json object for us
+      // i'm sorry
+      let shoppingData = JSON.stringify(cartData);
+      let actualShoppingData = JSON.parse(shoppingData);
+
+      // we still need to call the demo products for the landing page so this call stays here
+      db.Products.findAll({ limit: 8 }).then(dbProducts => {
+        // console.log(dbProducts);
+        res.render("login", {
+          data: dbProducts,
+          user: req.user,
+          shopping: actualShoppingData
+        });
+      });
     });
+    // db.Products.findAll({ limit: 8 }).then(dbProducts => {
+    //   // console.log(dbProducts);
+    //   res.render("login", { data: dbProducts, user: req.user });
+    // });
   });
 
   // Route for logging user out

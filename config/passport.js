@@ -19,7 +19,7 @@ passport.use(
           email: email
         }
       }).then(dbUser => {
-        console.log(dbUser);
+        // console.log(dbUser);
         // If there's no user with the given email
         if (!dbUser) {
           return done(null, false, {
