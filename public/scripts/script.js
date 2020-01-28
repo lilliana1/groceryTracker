@@ -69,7 +69,7 @@
 // });
 
 function addToCart(id) {
-  const url = `http://localhost:8080/api/addToCart/${id}`;
+  const url = `/api/addToCart/${id}`;
   const otherParam = {
     method: "POST"
   };
