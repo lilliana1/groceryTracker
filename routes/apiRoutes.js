@@ -138,6 +138,17 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/destroy/:id", (req, res) => {
+    db.Grocery_List.destroy({
+      where: {
+        productId: req.params.id,
+        userId: req.user
+      }
+    }).then(data => {
+      res.redirect("/shopping");
+    });
+  });
+
   // Route for getting a users cart
   app.get("/api/getCart", (req, res) => {
     db.Grocery_List.findAll({
